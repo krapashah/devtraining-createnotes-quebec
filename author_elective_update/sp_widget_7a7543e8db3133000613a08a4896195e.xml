@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[	function($scope,$rootScope,spModal) {
+		/* widget controller */
+		var c = this;
+
+		$rootScope.$on('selectNote', function(event,data) {
+			c.server.get({
+				action: 'getNote',
+				noteID: $rootScope.noteID
+			}).then(function(r) {
+				c.data.title = r.data.note.title;
+				c.data.note = r.data.note.note;
+				c.data.noteID = r.data.note.sys_id;
+			});
+		});
+
+		c.updateNote = function(updateType) {
+			c.server.get({
+				action: 'updateNote',
+				noteID: c.data.noteID,
+				noteBody: c.data.note,
+				noteTitle: c.data.title
+			}).then(function(r) {
+				// When the promise is returned, emit the change
+				if (updateType == 'title' || updateType == 'body') { 
+					$rootScope.$emit('updateTitle', r.data); 
+				}
+			});
+		}
+		c.deleteNote = function() {
+			c.server.get({
+				action: 'deleteNote',
+				noteID: c.data.noteID
+			}).then(function(r) {
+				$rootScope.$emit('deleteNote', c.data.noteID);
+				c.data.title = '';
+				c.data.note = '';
+				c.data.noteID = '';
+			});
+		}
+	}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>notes__body</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Notes  Body</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	//create an array to populate with notes
+	data.notes = [];
+	var noteGR = new GlideRecord('x_snc_createnotes_note');
+	noteGR.addQuery('user', gs.getUser().getID());
+	noteGR.orderByDesc('sys_created_on');
+	noteGR.query();
+	while (noteGR.next()) {
+		var noteObj = {};
+		//use service portal helper method to get some display values
+		$sp.getRecordDisplayValues(noteObj, noteGR, 'number,title,sys_id');
+		//get the first 20 characters of the description
+		noteObj.note = noteGR.getValue('note').slice(0,20);
+		//push the populated obj into the array
+		data.notes.push(noteObj);
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-05-30 18:16:57</sys_created_on>
+        <sys_id>7a7543e8db3133000613a08a4896195e</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>Notes  Body</sys_name>
+        <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
+        <sys_update_name>sp_widget_7a7543e8db3133000613a08a4896195e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-07-15 21:25:25</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default">
+  <div class="panel-heading clearfix">
+    <h3 class="panel-title pull-left">
+      ${Notes}
+    </h3>
+  </div>
+  <div class="list-group">
+    <a class="list-group-item"ng-click="c.selectItem($index)" ng-repeat="note in data.notes">
+      <h4 class="list-group-item-heading">
+        {{note.title}}
+      </h4>
+      <p class="list-group-item-text">
+        {{note.note}}
+      </p>
+    </a>
+  </div>
+</div>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</application>
+        <file_path/>
+        <instance_id>7def5c7adb09bfc449eac5970596196b</instance_id>
+        <instance_name>dev84317</instance_name>
+        <name>sp_widget_7a7543e8db3133000613a08a4896195e</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[	function($scope,$rootScope,spModal) {
+		/* widget controller */
+		var c = this;
+
+		$rootScope.$on('selectNote', function(event,data) {
+			c.server.get({
+				action: 'getNote',
+				noteID: $rootScope.noteID
+			}).then(function(r) {
+				c.data.title = r.data.note.title;
+				c.data.note = r.data.note.note;
+				c.data.noteID = r.data.note.sys_id;
+			});
+		});
+
+		c.updateNote = function(updateType) {
+			c.server.get({
+				action: 'updateNote',
+				noteID: c.data.noteID,
+				noteBody: c.data.note,
+				noteTitle: c.data.title
+			}).then(function(r) {
+				// When the promise is returned, emit the change
+				if (updateType == 'title' || updateType == 'body') { 
+					$rootScope.$emit('updateTitle', r.data); 
+				}
+			});
+		}
+		c.deleteNote = function() {
+			c.server.get({
+				action: 'deleteNote',
+				noteID: c.data.noteID
+			}).then(function(r) {
+				$rootScope.$emit('deleteNote', c.data.noteID);
+				c.data.title = '';
+				c.data.note = '';
+				c.data.noteID = '';
+			});
+		}
+	}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css/&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id&gt;notes__body&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {  }]]&gt;&lt;/link&gt;&lt;name&gt;Notes  Body&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+	//create an array to populate with notes
+	data.notes = [];
+	var noteGR = new GlideRecord('x_snc_createnotes_note');
+	noteGR.addQuery('user', gs.getUser().getID());
+	noteGR.orderByDesc('sys_created_on');
+	noteGR.query();
+	while (noteGR.next()) {
+		var noteObj = {};
+		//use service portal helper method to get some display values
+		$sp.getRecordDisplayValues(noteObj, noteGR, 'number,title,sys_id');
+		//get the first 20 characters of the description
+		noteObj.note = noteGR.getValue('note').slice(0,20);
+		//push the populated obj into the array
+		data.notes.push(noteObj);
+	}
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2019-05-30 18:16:57&lt;/sys_created_on&gt;&lt;sys_id&gt;7a7543e8db3133000613a08a4896195e&lt;/sys_id&gt;&lt;sys_mod_count&gt;16&lt;/sys_mod_count&gt;&lt;sys_name&gt;Notes  Body&lt;/sys_name&gt;&lt;sys_package display_value="CreateNotes" source="x_snc_createnotes"&gt;df5fd9a5090232007f44e1046c8ff69f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CreateNotes"&gt;df5fd9a5090232007f44e1046c8ff69f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_7a7543e8db3133000613a08a4896195e&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-07-15 21:25:25&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="panel panel-default"&gt;
+  &lt;div class="panel-heading clearfix"&gt;
+    &lt;h3 class="panel-title pull-left"&gt;
+      ${Notes}
+    &lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class="list-group"&gt;
+    &lt;a class="list-group-item"ng-click="c.selectItem($index)" ng-repeat="note in data.notes"&gt;
+      &lt;h4 class="list-group-item-heading"&gt;
+        {{note.title}}
+      &lt;/h4&gt;
+      &lt;p class="list-group-item-text"&gt;
+        {{note.note}}
+      &lt;/p&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1465493532</payload_hash>
+        <record_name>Notes  Body</record_name>
+        <reverted_from/>
+        <source>2cad63ae07113010fd04f7fc7c1ed002</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-07-15 21:25:25</sys_created_on>
+        <sys_id>5feb857207553010fd04f7fc7c1ed00f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17aac0f5b760000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-07-15 21:25:25</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>97eb85726c5530102cf91537dc44630f</update_guid>
+        <update_guid_history>97eb85726c5530102cf91537dc44630f:1465493532,9e51c17a43153010255c119673461140:-492242204,0890817a14153010d84ba63ad7469afb:-1324926186,052e70f668153010f2f59a032bdc80c3:-219003476,066d387694153010275ab3d3a1383a5b:2135693928,67fcb0761e153010144981cc03c93655:368586958,f89af8f2db153010b1f78e89db7938fc:-1557292750,6fe938365615301018bd0ee459964a73:-539512534,4930f87e25d1301047fb97aae675ee01:1134006230</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Notes  Body">6bdcc1b207553010fd04f7fc7c1ed06c</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-07-15 21:29:32</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>1cebec2aae9d4ae0a0fcaa86b187c400</sys_id>
+        <sys_metadata>7a7543e8db3133000613a08a4896195e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Notes  Body</sys_name>
+        <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
+        <sys_scope_delete display_value="">64daa03572704d49a928bf08a985d6f9</sys_scope_delete>
+        <sys_update_name>sp_widget_7a7543e8db3133000613a08a4896195e</sys_update_name>
+        <sys_update_version display_value="sp_widget_7a7543e8db3133000613a08a4896195e">5feb857207553010fd04f7fc7c1ed00f</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-07-15 21:29:32</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

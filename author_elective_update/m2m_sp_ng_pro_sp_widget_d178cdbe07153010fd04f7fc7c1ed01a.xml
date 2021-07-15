@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget">
+    <m2m_sp_ng_pro_sp_widget action="DELETE">
+        <sp_angular_provider display_value="deleteButtonConfirm">ab46457e07153010fd04f7fc7c1ed083</sp_angular_provider>
+        <sp_widget display_value="Notes  Body">7a7543e8db3133000613a08a4896195e</sp_widget>
+        <sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-07-15 21:10:16</sys_created_on>
+        <sys_id>d178cdbe07153010fd04f7fc7c1ed01a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>deleteButtonConfirm.Notes  Body</sys_name>
+        <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_d178cdbe07153010fd04f7fc7c1ed01a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-07-15 21:10:16</sys_updated_on>
+    </m2m_sp_ng_pro_sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</application>
+        <file_path/>
+        <instance_id>7def5c7adb09bfc449eac5970596196b</instance_id>
+        <instance_name>dev84317</instance_name>
+        <name>m2m_sp_ng_pro_sp_widget_d178cdbe07153010fd04f7fc7c1ed01a</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget"><m2m_sp_ng_pro_sp_widget action="INSERT_OR_UPDATE"><sp_angular_provider display_value="deleteButtonConfirm">ab46457e07153010fd04f7fc7c1ed083</sp_angular_provider><sp_widget display_value="Notes  Body">7a7543e8db3133000613a08a4896195e</sp_widget><sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2021-07-15 21:10:16</sys_created_on><sys_id>d178cdbe07153010fd04f7fc7c1ed01a</sys_id><sys_mod_count>0</sys_mod_count><sys_name>deleteButtonConfirm.Notes  Body</sys_name><sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package><sys_policy/><sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope><sys_update_name>m2m_sp_ng_pro_sp_widget_d178cdbe07153010fd04f7fc7c1ed01a</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-07-15 21:10:16</sys_updated_on></m2m_sp_ng_pro_sp_widget></record_update>]]></payload>
+        <payload_hash>-1587539132</payload_hash>
+        <record_name>deleteButtonConfirm.Notes  Body</record_name>
+        <reverted_from/>
+        <source>2cad63ae07113010fd04f7fc7c1ed002</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-07-15 21:10:16</sys_created_on>
+        <sys_id>5d78cdbe07153010fd04f7fc7c1ed01c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17aac017d5b0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-07-15 21:10:16</sys_updated_on>
+        <type>Angular Providers</type>
+        <update_guid>9578cdbe45153010958a745ac34ded1c</update_guid>
+        <update_guid_history>9578cdbe45153010958a745ac34ded1c:-1587539132</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="deleteButtonConfirm.Notes  Body">dbdc4d7207553010fd04f7fc7c1ed09e</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-07-15 21:29:31</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sp_ng_pro_sp_widget">m2m_sp_ng_pro_sp_widget</sys_db_object>
+        <sys_id>0a28a27e0d6f49c0aed18869294e1000</sys_id>
+        <sys_metadata>d178cdbe07153010fd04f7fc7c1ed01a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>deleteButtonConfirm.Notes  Body</sys_name>
+        <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
+        <sys_scope_delete display_value="">64daa03572704d49a928bf08a985d6f9</sys_scope_delete>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_d178cdbe07153010fd04f7fc7c1ed01a</sys_update_name>
+        <sys_update_version display_value="m2m_sp_ng_pro_sp_widget_d178cdbe07153010fd04f7fc7c1ed01a">5d78cdbe07153010fd04f7fc7c1ed01c</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-07-15 21:29:31</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
